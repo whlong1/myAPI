@@ -1,0 +1,63 @@
+STEPS FOR MAKING A NODE/EXPRESS APP:
+
+Create a new repo
+cd into the new repo
+ run npm init -y , this sets up your package.json with defaults.
+npm i express nodemon  install express and nodemon
+touch either: index.js, server.js, or app.js
+Check your package.json, the file being given to "main": should be the name of the file you just touched if it is not already. This file is your app's entry point. npm init -y defaults to index.js.
+Require express, set up your port, and have your app listen on that port.
+const express = require('express')
+const app = express()
+const PORT = process.env.PORT || 8000
+// More dependencies here const dependencyName = require('dependency-name')
+////////////////////////////////////////
+// Middleware here, below dependencies
+////////////////////////////////////////
+// Routes here, below Middleware
+////////////////////////////////////////
+app.listen(PORT, () => console.log(`Server Listening on port: ${PORT}`)
+Install and require more dependencies (packages) as you need them
+Run nodemon . Your server should be running on your port
+
+INITIALIZING A MONGOOSE DATABASE CONNECTION:
+
+If you are using mongoose,  npm i mongoose to install it
+mkdir db models seed to create folders for your database, mongoose schemas, and seeds
+In your db folder, touch index.js and require mongoose const mongoose = require('mongoose'). This file is to establish your initial database connection.
+Enter your database name into the mongoose.connect() after mongodb://127.0.0.1:27017/dbName
+Create a db variable equal to this new mongoose connection: const db = mongoose.connection 
+Export your connection as db at the bottom of your file: module.exports = db
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://127.0.0.1:27017/yourDbName', { useUnifiedTopology: true, useNewUrlParser: true })
+    .then(() => {
+        console.log('Successfully connected to MongoDB.');
+      })
+    .catch(e => {
+        console.error('Connection error', e.message)
+    })
+mongoose.set('debug', true)
+const db = mongoose.connection
+module.exports = db
+
+CREATING MONGOOSE SCHEMAS (DATA MODELS):
+
+Inside your models folder, touch a new .js file with a Capitalized name. This file is for one schema.
+Require mongoose: const mongoose = require('mongoose')
+Tell mongoose that you're creating a new schema: const Schema = mongoose.Schema
+Set up your Schema like so: const MyNewModel = new Schema({key: value pairs in here})
+After establishing what your Schema (data model) will be, export it as a mongoose model
+module.exports = mongoose.model('mynewmodel', MyNewModel)
+Example:
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const Book = new Schema(
+    {
+        title: { type: String, required: true },
+        author: { type: String, required: true },
+        published_date: { type: String, required: true },
+        publisher_id: { type: Schema.Types.ObjectId, ref: 'publisher_id' }
+    },
+    { timestamps: true },
+)
+module.exports = mongoose.model('books', Book)

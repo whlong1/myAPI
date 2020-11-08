@@ -13,7 +13,7 @@ You will be making your own API with this deliverable. This includes Schemas, Co
 - Then `npm i express mongoose nodemon`
 - For middleware, `npm i morgan cors body-parser`
 - Remember that to use your packages, you need to require them in your server, then use them.
-- Add your `node_modules` and `package-lock.json` to your `.gitignore` file.
+- Add your `node_modules` and `//` to your `.gitignore` file.
 - If you don't want to make scripts to run your server, change the "main" inside package.json (line 4) to `server.js`
 - Once your app is listening to a PORT just run `nodemon` from your repo on the command line.
 
@@ -27,11 +27,3 @@ You will be making your own API with this deliverable. This includes Schemas, Co
 - Keep it simple, overcomplicating your models will make building routes more difficult.
 - Use lessons and labs as a reference for the structure of your API.
 - You **don't** need a seed file. You can create data from your routes with `Insomnia`
-
-
-touch README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin git@github.com:alexpchin/<reponame>.git
-git push -u origin master
