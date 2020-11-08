@@ -1,8 +1,7 @@
-// const { Router } = require('express');
-// const Router = Router();
-
 const Router = require('express').Router()
 
-Router.get('/', (request, response) => response.send('This is root!'))
+const AlbumRouter = require('./AlbumRouter')
 
-module.exports = Router;
+Router.use('/albums', AlbumRouter)
+
+module.exports = Router
