@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 
 mongoose
-    .connect('mongodb://127.0.0.1:27017/productsDatabase', { useUnifiedTopology: true, useNewUrlParser: true })
+    .connect('mongodb://127.0.0.1:27017/myDatabase', { useUnifiedTopology: true, useNewUrlParser: true })
     .then(() => {
         console.log('Successfully connected to MongoDB.');
       })
-    .catch(e => {
-        console.error('Connection error', e.message)
+    .catch((event) => {
+        console.error('Connection error', event.message)
     })
-// mongoose.set('debug', true)
-const db = mongoose.connection
 
+
+const db = mongoose.connection
 module.exports = db
