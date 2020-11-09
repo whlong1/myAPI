@@ -7,12 +7,14 @@ const Album = new Schema(
         artist: {type: String, required: true},
         label: {type: String, required: true},
         date: {type: String, required: true},
+        rating: { type: Schema.Types.ObjectId, ref: 'ratings'}
     },
     {timestamps: true},
 )
 
+
+
+
 module.exports = mongoose.model('albums', Album)
 
 
-        // artist: {type: Schema.Types.ObjectId, ref: 'artists'},
-        // label: {type: Schema.Types.ObjectId, ref: 'labels'},
