@@ -1,8 +1,9 @@
 const express = require('express')
-const AppRouter = require('./routes/AppRouter');
-const db = require('./db/index');
+const AppRouter = require('./routes/AppRouter')
+const db = require('./db/index')
 const logger = require('morgan')
 const cors = require('cors')
+// const Product = require('./models/product')
 
 const PORT = process.env.PORT || 3002
 const app = express()
@@ -10,7 +11,7 @@ const app = express()
 //Middleware
 app.use(logger('dev'))
 app.use(cors())
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 //Middleware
 

@@ -1,7 +1,6 @@
 const Album = require('../models/album')
 
 
-
 const CreateAlbum = async (request, response) => {
     try {
         const album = await new Album(request.body)
@@ -29,7 +28,7 @@ const FindOneAlbum = async (request, response) => {
         const title = await Album.find({title: {$eq: albumName}})
         return response.status(200).json({title})
     } catch (error) {
-        return response.status(500).send(error.message)
+        return response.status(500).send(error.message, 'Not Found')
     }
 }
 
@@ -72,15 +71,6 @@ const UpdateAlbum = async (request, response) => {
         return response.status(500).send(error.message)
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 module.exports = {
