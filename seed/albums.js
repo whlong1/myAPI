@@ -28,19 +28,3 @@ const run = async () => {
 
 run()
 
-// const users = new Array(50).fill().map(() => ({
-//     _id: Types.ObjectId(),
-//     name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-//     email: faker.internet.email(),
-//     password_digest: faker.random.word()
-//   }))
-
-
-// title: {type: String, required: true},
-// artist: {type: Schema.Types.ObjectId, ref: 'artists'},
-// label: {type: Schema.Types.ObjectId, ref: 'labels'},
-// date: {type: String, required: true},
-
-
-
-// db.collection.insertOne()
